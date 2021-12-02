@@ -41,6 +41,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 const save = () => {
     try {
         let employeePayrollData = createEmployeePayroll();
+        createAndUpdateStorage(employeePayrollData);
     } catch (e) {
         return;
     }
@@ -82,6 +83,7 @@ const getInputValueById = (id) => {
 }
 
 function createAndUpdateStorage(employeePayrollData) {
+    localStorage.clear();
     let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
     if (employeePayrollList != undefined) {
         employeePayrollList.push(employeePayrollData);
